@@ -1,0 +1,34 @@
+{% extends "cnctfacpBundle::layout.html.twig" %}
+
+{% block title %}
+	Accueil - {{ parent() }}
+{% endblock %}
+
+{% block facp_body %}
+
+	<h2>Liste des utilisateurs</h2>
+
+	<ul>
+		{% for utilisateur in utilisateurs %}
+			<li>
+				<a href="{{ path('cnctfacpBundle_voir', {'id': utilisateur.id}) }}">{{ utilisateur.nom }}</a>
+				 &nbsp;&nbsp;{{ utilisateur.prenom }}&nbsp;&nbsp;{{ utilisateur.matricule }}&nbsp;&nbsp;
+				{{ utilisateur.categorie }}&nbsp;&nbsp;{{ utilisateur.etat }}&nbsp;&nbsp;{{ utilisateur.grade }}&nbsp;&nbsp;
+                                {{ utilisateur.privilege }}&nbsp;&nbsp;{{ utilisateur.processus }}&nbsp;&nbsp;{{ utilisateur.direction }}
+			</li>
+		{% else %}
+			<li>Pas (encore !) d'utilisateurs</li>
+		{% endfor %}
+	</ul>
+        <div class="pagination">
+    	<ul>
+    		{# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+    		{% for p in range(1, nb_pages) %}
+    			<li{% if p == page %} class="active"{% endif %}>
+    				<a href="{{ path('cnctfacpBundle_homepage', {'page': p}) }}">{{ p }}</a>
+    			</li>
+    		{% endfor %}
+    	</ul>
+        </div>
+
+{% endblock %}

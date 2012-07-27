@@ -1,0 +1,57 @@
+<h1>Utilisateur list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Matricule</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Adresse_ip</th>
+            <th>Categorie</th>
+            <th>Etat</th>
+            <th>Grade</th>
+            <th>Processus</th>
+            <th>Direction</th>
+            <th>Sous_direction</th>
+            <th>Privilege</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('utilisateur_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.matricule }}</td>
+            <td>{{ entity.nom }}</td>
+            <td>{{ entity.prenom }}</td>
+            <td>{{ entity.adresseip }}</td>
+            <td>{{ entity.categorie }}</td>
+            <td>{{ entity.etat }}</td>
+            <td>{{ entity.grade }}</td>
+            <td>{{ entity.processus }}</td>
+            <td>{{ entity.direction }}</td>
+            <td>{{ entity.sousdirection }}</td>
+            <td>{{ entity.privilege }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('utilisateur_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('utilisateur_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('utilisateur_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

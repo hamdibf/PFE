@@ -1,0 +1,27 @@
+{% extends "cnctfacpBundle::layout.html.twig" %}
+
+{% block title %}
+	supprimer un utilisateur - {{ parent() }}
+{% endblock %}
+
+{% block facp_body %}
+
+	<h2>Suppression d'un utilisateur</h2>
+
+	<p>
+		Voulez vous supprimer l'utilisateur {{ utilisateur.prenom }} {{ utilisateur.nom }}?
+		<p>
+		<a href="{{ path('cnctfacpBundle_supprimer', {'id': utilisateur.id}) }}" class="btn">
+			<i class="icon-ok"></i>
+			Confirmer
+		</a>
+		<a href="{{ path('cnctfacpBundle_homepage', {'id': utilisateur.id}) }}" class="btn">
+			<i class="icon-remove"></i>
+			Annuler
+		</a>
+		</p>
+	</p>
+
+	
+
+{% endblock %}

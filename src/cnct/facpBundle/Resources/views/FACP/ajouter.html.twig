@@ -1,0 +1,22 @@
+{% extends "cnctfacpBundle::layout.html.twig" %}
+
+{% block title %}
+	Ajouter un utilisateur - {{ parent() }}
+{% endblock %}
+
+{% block facp_body %}
+
+	<h2>Ajouter un utilisateur</h2>
+
+	{% include "cnctfacpBundle:Facp:formulaire.html.twig" %}
+
+	<p>
+		Vous éditez un article déjà existant,
+		ne le changez pas trop pour éviter
+		aux membres de ne pas comprendre
+		ce qu'il se passe.
+	</p>
+
+	
+
+{% endblock %}

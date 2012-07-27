@@ -1,0 +1,8 @@
+app/bootstrap*
+
+vendor/*
+*/login/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+app/config/parameters.ini

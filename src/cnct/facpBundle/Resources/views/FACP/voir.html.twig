@@ -1,0 +1,31 @@
+{% extends "cnctfacpBundle::layout.html.twig" %}
+
+{% block title %}
+	Lecture d'un article - {{ parent() }}
+{% endblock %}
+
+{% block facp_body %}
+
+	<h2>{{ utilisateur.matricule }}</h2>
+	<i>Par {{ utilisateur.prenom }}, de {{ utilisateur.processus }}</i>
+
+	<div class="well">
+		{{ utilisateur.direction }}
+	</div>
+
+	<p>
+		<a href="{{ path('cnctfacpBundle_homepage') }}" class="btn">
+			<i class="icon-chevron-left"></i>
+			Retour à la liste
+		</a>
+		<a href="{{ path('cnctfacpBundle_modifier', {'id': utilisateur.id}) }}" class="btn">
+			<i class="icon-edit"></i>
+			Modifier l'utilisateur
+		</a>
+		<a href="{{ path('cnctfacpBundle_confirmation', {'id': utilisateur.id}) }}" class="btn">
+			<i class="icon-trash"></i>
+			Supprimer l'utilisateur
+		</a>
+	</p>
+
+{% endblock %}

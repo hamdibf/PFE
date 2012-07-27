@@ -1,0 +1,12 @@
+<span class="label label-info">Formulaire</span>
+
+{# Ici on laisse vide la vue pour l'instant, on la comblera plus tard lorsque saura afficher un formulaire. #}
+<div class="well">
+	<form method="post" {{ form_enctype(form) }}>
+	
+	{{ form_widget(form) }}
+	
+	<input type="submit" />
+    <input type="reset" />
+</form>
+</div>

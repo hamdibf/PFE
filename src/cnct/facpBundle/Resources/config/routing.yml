@@ -1,0 +1,31 @@
+cnctfacpBundle_homepage:
+    pattern:   /{page}
+    defaults:  { _controller: cnctfacpBundle:Facp:index, page: 1 }
+    requirements:
+        page:  \d+
+cnctfacpBundle_voir:
+    pattern:   /utilisateur/{id}
+    defaults:  { _controller: cnctfacpBundle:Facp:voir }
+    requirements:
+        id:  \d+
+cnctfacpBundle_ajouter:
+    pattern:   /ajouter
+    defaults:  { _controller: cnctfacpBundle:Facp:ajouter }
+cnctfacpBundle_modifier:
+    pattern:   /modifier/{id}
+    defaults:  { _controller: cnctfacpBundle:Facp:modifier }
+    requirements:
+        id:  \d+
+cnctfacpBundle_confirmation:
+    pattern:   /confirm/{id}
+    defaults:  { _controller: cnctfacpBundle:Facp:confirm }
+    requirements:
+        id:  \d+
+cnctfacpBundle_supprimer:
+    pattern:   /supprimer/{id}
+    defaults:  { _controller: cnctfacpBundle:Facp:supprimer }
+    requirements:
+        id:  \d+
+cnctfacpBuldle_utilisateur:
+    resource: "routing/utilisateur.yml"
+    prefix:   /utilisateur
