@@ -46,7 +46,7 @@ class Utilisateur
 
     /**
      * @var string $adresse_ip
-     *@Assert\Ip()
+     * @Assert\Ip()
      * @ORM\Column(name="adresse_ip", type="string", length=40)
      */
     private $adresse_ip;
