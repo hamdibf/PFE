@@ -4,8 +4,8 @@ security:
         FOS\UserBundle\Model\UserInterface: sha512
         
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN:       [ROLE_AUTEUR, ROLE_MODERATEUR]       # On a dit que l'admin héritait des droits d'auteur et de modérateur
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH] # On garde ce rôle superadmin
 
     providers:
         in_memory:

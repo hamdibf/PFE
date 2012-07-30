@@ -7,10 +7,15 @@ use Symfony\Component\HttpFoundation\Response;
 use cnct\facpBundle\Entity\Utilisateur;
 use cnct\facpBundle\Form\UtilisateurType;
 use cnct\facpBundle\Form\UtilisateurHandler;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 class FacpController extends Controller
 {
-     public function indexAction($page)
+    /**
+     * @Secure(roles="IS_AUTHENTICATED_REMEMBERED")
+     */ 
+    public function indexAction($page)
     {  
         $repository = $this->getDoctrine()
                            ->getEntityManager()
@@ -49,7 +54,9 @@ class FacpController extends Controller
             'utilisateur' => $utilisateur
         ));
     }
-
+    /**
+     * @Secure(roles="ROLE_AUTEUR")
+     */
     public function ajouterAction()
     {
         // On crée un objet Article.
