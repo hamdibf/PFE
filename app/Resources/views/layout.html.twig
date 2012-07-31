@@ -5,6 +5,7 @@
 
 		<title>{% block title %}FACP{% endblock %}</title>
 
+
 		{% block stylesheets %}
 			<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}" type="text/css" />
 		{% endblock %}
@@ -15,13 +16,13 @@
                             <div class="navbar-inner">
                                 <div class="container">
                                     <ul class="nav">
-                                        <li class="nav"><b>Date: {{ "now"|date("d/M/Y") }}</b></li>
-                                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-    Connecté en tant que {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-{% else %}
-    <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-{% endif %}
-										<li>adr_ip</li>
+                                        <li class="nav">Date: {{ "now"|date("d/M/Y") }}</li>
+                                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                              Connecté en tant que {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                                            {% else %}
+                                                <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                                            {% endif %}
+						<li>Adresse ip: {{  ip  }}</li>
                                     </ul>
                                 </div>
                             </div>

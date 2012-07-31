@@ -29,7 +29,6 @@ class UtilisateurType extends AbstractType
             ->add('processus')
             ->add('direction')
             ->add('sous_direction')
-            ->add('privilege')
         ;
     }
 

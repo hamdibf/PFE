@@ -94,14 +94,6 @@ class Utilisateur
     private $sous_direction;
 
     /**
-     * @var string $privilege
-     *
-     * @ORM\Column(name="privilege", type="string", length=20)
-     */
-    private $privilege;
-
-
-    /**
      * Get id
      *
      * @return integer 
@@ -309,25 +301,5 @@ class Utilisateur
     public function getSousDirection()
     {
         return $this->sous_direction;
-    }
-
-    /**
-     * Set privilege
-     *
-     * @param string $privilege
-     */
-    public function setPrivilege($privilege)
-    {
-        $this->privilege = $privilege;
-    }
-
-    /**
-     * Get privilege
-     *
-     * @return string 
-     */
-    public function getPrivilege()
-    {
-        return $this->privilege;
     }
 }
