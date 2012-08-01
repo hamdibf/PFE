@@ -1,0 +1,30 @@
+sous_direction:
+    pattern:  /
+    defaults: { _controller: "cnctfacpBundle:Sous_direction:index" }
+
+sous_direction_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "cnctfacpBundle:Sous_direction:show" }
+
+sous_direction_new:
+    pattern:  /new
+    defaults: { _controller: "cnctfacpBundle:Sous_direction:new" }
+
+sous_direction_create:
+    pattern:  /create
+    defaults: { _controller: "cnctfacpBundle:Sous_direction:create" }
+    requirements: { _method: post }
+
+sous_direction_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "cnctfacpBundle:Sous_direction:edit" }
+
+sous_direction_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "cnctfacpBundle:Sous_direction:update" }
+    requirements: { _method: post }
+
+sous_direction_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "cnctfacpBundle:Sous_direction:delete" }
+    requirements: { _method: post }

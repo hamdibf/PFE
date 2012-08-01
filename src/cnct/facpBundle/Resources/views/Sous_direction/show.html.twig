@@ -1,0 +1,41 @@
+<h1>Sous_direction</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Code_s_dir</th>
+            <td>{{ entity.codesdir }}</td>
+        </tr>
+        <tr>
+            <th>Libelle</th>
+            <td>{{ entity.libelle }}</td>
+        </tr>
+        <tr>
+            <th>Direction</th>
+            <td>{{ entity.direction }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('sous_direction') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('sous_direction_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('sous_direction_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

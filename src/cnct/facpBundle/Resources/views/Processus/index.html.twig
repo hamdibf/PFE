@@ -1,0 +1,43 @@
+<h1>Processus list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Code_pro</th>
+            <th>Libelle</th>
+            <th>Pilote</th>
+            <th>Interime</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('processus_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.codepro }}</td>
+            <td>{{ entity.libelle }}</td>
+            <td>{{ entity.pilote }}</td>
+            <td>{{ entity.interime }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('processus_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('processus_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('processus_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

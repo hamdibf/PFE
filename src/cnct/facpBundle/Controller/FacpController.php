@@ -17,7 +17,6 @@ class FacpController extends Controller
      */ 
     public function indexAction($page)
     {  
-        $ip = $_SERVER['REMOTE_ADDR'];
         $repository = $this->getDoctrine()
                            ->getEntityManager()
                            ->getRepository('cnctfacpBundle:Utilisateur');
@@ -45,8 +44,7 @@ class FacpController extends Controller
             'utilisateurs' => $utilisateurs,
             'page'     => $page,    // On transmet à la vue la page courante,
             'nb_pages' => $nb_pages, // Et le nombre total de pages.
-            'ip' => $ip
-        ));
+            ));
     }
 
 

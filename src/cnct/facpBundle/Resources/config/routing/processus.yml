@@ -1,0 +1,30 @@
+processus:
+    pattern:  /
+    defaults: { _controller: "cnctfacpBundle:Processus:index" }
+
+processus_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "cnctfacpBundle:Processus:show" }
+
+processus_new:
+    pattern:  /new
+    defaults: { _controller: "cnctfacpBundle:Processus:new" }
+
+processus_create:
+    pattern:  /create
+    defaults: { _controller: "cnctfacpBundle:Processus:create" }
+    requirements: { _method: post }
+
+processus_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "cnctfacpBundle:Processus:edit" }
+
+processus_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "cnctfacpBundle:Processus:update" }
+    requirements: { _method: post }
+
+processus_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "cnctfacpBundle:Processus:delete" }
+    requirements: { _method: post }
