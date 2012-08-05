@@ -1,3 +1,12 @@
+{% extends "cnctfacpBundle::layout.html.twig" %}
+
+{% block title %}
+	Administration - {{ parent() }}
+{% endblock %}
+{% block menu %}
+        <h1><font color="#800080">Administration</font></h1>
+{% endblock %}
+{% block facp_body %}
 <h1>Sous_direction creation</h1>
 
 <form action="{{ path('sous_direction_create') }}" method="post" {{ form_enctype(form) }}>
@@ -14,3 +23,4 @@
         </a>
     </li>
 </ul>
+{% endblock %}

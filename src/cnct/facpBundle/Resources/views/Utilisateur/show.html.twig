@@ -1,6 +1,15 @@
+{% extends "cnctfacpBundle::layout.html.twig" %}
+
+{% block title %}
+	Administration - {{ parent() }}
+{% endblock %}
+{% block menu %}
+        <h1><font color="#800080">Administration</font></h1>
+{% endblock %}
+{% block facp_body %}
 <h1>Utilisateur</h1>
 
-<table class="record_properties">
+<table class="table table-striped well">
     <tbody>
         <tr>
             <th>Id</th>
@@ -46,10 +55,6 @@
             <th>Sous_direction</th>
             <td>{{ entity.sousdirection }}</td>
         </tr>
-        <tr>
-            <th>Privilege</th>
-            <td>{{ entity.privilege }}</td>
-        </tr>
     </tbody>
 </table>
 
@@ -71,3 +76,4 @@
         </form>
     </li>
 </ul>
+{% endblock %}

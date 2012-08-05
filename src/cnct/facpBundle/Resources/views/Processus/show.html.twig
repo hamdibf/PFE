@@ -1,6 +1,15 @@
+{% extends "cnctfacpBundle::layout.html.twig" %}
+
+{% block title %}
+	Administration - {{ parent() }}
+{% endblock %}
+{% block menu %}
+        <h1><font color="#800080">Administration</font></h1>
+{% endblock %}
+{% block facp_body %}
 <h1>Processus</h1>
 
-<table class="record_properties">
+<table class="table table-striped well" >
     <tbody>
         <tr>
             <th>Id</th>
@@ -25,21 +34,20 @@
     </tbody>
 </table>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('processus') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('processus_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('processus_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+<p class="well">
+		<a href="{{ path('processus') }}" class="btn">
+			<i class="icon-chevron-left"></i>
+			Retour à la liste
+		</a>
+		<a href="{{ path('processus_edit', { 'id': entity.id }) }}" class="btn">
+			<i class="icon-edit"></i>
+			Modifier le processus
+		</a>
+		
+                <form action="{{ path('processus_delete', { 'id': entity.id }) }}" method="post">
+                    {{ form_widget(delete_form) }}
+                    <button type="submit">Delete</button>
+                </form>
+</p>
+
+{% endblock %}

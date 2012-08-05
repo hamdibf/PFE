@@ -1,4 +1,13 @@
-<h1>Processus creation</h1>
+{% extends "cnctfacpBundle::layout.html.twig" %}
+
+{% block title %}
+	Administration - {{ parent() }}
+{% endblock %}
+{% block menu %}
+        <h1><font color="#800080">Administration</font></h1>
+{% endblock %}
+{% block facp_body %}
+<h1>Création de processus</h1>
 
 <form action="{{ path('processus_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
@@ -10,7 +19,8 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('processus') }}">
-            Back to the list
+            Retour à la liste
         </a>
     </li>
 </ul>
+{% endblock %}

@@ -1,9 +1,11 @@
 {% extends "cnctfacpBundle::layout.html.twig" %}
 
 {% block title %}
-	Accueil - {{ parent() }}
+	Administration - {{ parent() }}
 {% endblock %}
-
+{% block menu %}
+        <h1><font color="#800080">Administration</font></h1>
+{% endblock %}
 {% block facp_body %}
 
 	<h2>Liste des utilisateurs</h2>

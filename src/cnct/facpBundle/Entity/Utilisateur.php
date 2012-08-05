@@ -302,4 +302,8 @@ class Utilisateur
     {
         return $this->sous_direction;
     }
+    
+    public function __toString(){
+        return $this->matricule.' '.$this->nom.' '.$this->prenom;
+    }
 }

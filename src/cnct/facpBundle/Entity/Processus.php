@@ -2,6 +2,7 @@
 
 namespace cnct\facpBundle\Entity;
 
+use cnct\facpBundle\Entity\Utilisateur;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,15 +38,15 @@ class Processus
 
     /**
      * @var string $pilote
-     *
-     * @ORM\Column(name="pilote", type="string", length=50)
+     * @ORM\OneToOne(targetEntity="cnct\facpBundle\Entity\Utilisateur")
+     * @ORM\JoinColumn(referencedColumnName="id")
      */
     private $pilote;
 
     /**
      * @var string $interime
-     *
-     * @ORM\Column(name="interime", type="string", length=50)
+     * @ORM\OneToOne(targetEntity="cnct\facpBundle\Entity\Utilisateur")
+     * @ORM\JoinColumn(referencedColumnName="id")
      */
     private $interime;
 
@@ -103,9 +104,9 @@ class Processus
     /**
      * Set pilote
      *
-     * @param string $pilote
+     * @param cnct\facpBundle\Entity\Utilisateur $pilote
      */
-    public function setPilote($pilote)
+    public function setPilote(\cnctfacp\Bundle\Entity\Utilisateur $pilote)
     {
         $this->pilote = $pilote;
     }
@@ -113,7 +114,7 @@ class Processus
     /**
      * Get pilote
      *
-     * @return string 
+     * @return cnct\facpBundle\Entity\Utilisateur 
      */
     public function getPilote()
     {
@@ -123,9 +124,9 @@ class Processus
     /**
      * Set interime
      *
-     * @param string $interime
+     * @param cnct\facpBundle\Entity\Utilisateur $interime
      */
-    public function setInterime($interime)
+    public function setInterime(\cnctfacp\Bundle\Entity\Utilisateur $interime)
     {
         $this->interime = $interime;
     }
@@ -133,7 +134,7 @@ class Processus
     /**
      * Get interime
      *
-     * @return string 
+     * @return cnct\facpBundle\Entity\Utilisateur $interime
      */
     public function getInterime()
     {

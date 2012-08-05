@@ -3,7 +3,7 @@
 namespace cnct\facpBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use cnct\facpBundle\Entity\Utilisateur;
 use cnct\facpBundle\Entity\Processus;
 use cnct\facpBundle\Form\ProcessusType;
 
@@ -73,19 +73,31 @@ class ProcessusController extends Controller
     public function createAction()
     {
         $entity  = new Processus();
-        $request = $this->getRequest();
+                
+        $request = $this->get('request');
         $form    = $this->createForm(new ProcessusType(), $entity);
         $form->bindRequest($request);
 
         if ($form->isValid()) {
+            
+            $repository = $this->getDoctrine()
+                   ->getEntityManager()
+                   ->getRepository('cnctfacpBundle:Utilisateur');
+
+//            $pilote = $repository->findOneByMatricule($entity->getPilote());
+//            var_dump($pilote);
+//            $interime = $repository->findOneByMatricule($entity->getInterime());
+//            $entity->setPilote($pilote);
+//            $entity->setInterime($interime);
+//            
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($entity);
             $em->flush();
-
+//
             return $this->redirect($this->generateUrl('processus_show', array('id' => $entity->getId())));
-            
+//            
         }
-
+//
         return $this->render('cnctfacpBundle:Processus:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()

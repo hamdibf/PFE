@@ -17,23 +17,21 @@
                                 <div class="container">
                                     <ul class="nav">
                                         <li class="nav">Date: {{ "now"|date("d/M/Y") }}</li>
+                                        <li class="divider-vertical"></li>
                                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                               Connecté en tant que {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                                             {% else %}
                                                 <a href="{{ path('fos_user_security_login') }}">Connexion</a>
                                             {% endif %}
-						<li>Adresse ip: </li>
+                                        
                                     </ul>
                                 </div>
                             </div>
                 </nav>
 		<div class="container">
 			<div id="header" class="hero-unit">
-				<h1>Mon Projet de fin d'études</h1>
-				<p>Ce projet est propulsé par CNCT.</p>
-				<p><a class="btn btn-primary btn-large" href="http://www.siteduzero.com/tutoriel-3-517569-symfony2.html">
-					Lire le tutoriel &raquo;
-				</a></p>
+				<h1>C.N. de Cartographie et de Télédétection</h1>
+				
 			</div>
                
 			<div class="row">
@@ -41,6 +39,7 @@
 					<h3>Menu</h3>
 					<ul class="nav nav-pills nav-stacked">
 						<li><a href="{{ path('cnctfacpBundle_homepage') }}">Administration</a></li>
+                                                <li><a href="{{ path('cnctfacpBundle_homepage') }}">Nouvelle FACP</a></li>
 					</ul>
 				</div>
 				<div id="content" class="span9">
@@ -51,7 +50,7 @@
 
 			<hr>
 
-			<footer>
+                        <footer class="footer">
 				<p>The sky's the limit &copy; 2012 and beyond.</p>
 			</footer>
 		</div>
