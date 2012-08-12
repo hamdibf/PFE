@@ -1,0 +1,71 @@
+{% extends "cnctfacpBundle::layout.html.twig" %}
+
+{% block title %}
+	Administration - {{ parent() }}
+{% endblock %}
+{% block menu %}
+        <h1><font color="#800080">Administration</font></h1>
+{% endblock %}
+{% block facp_body %}
+<h1>FacpGlob</h1>
+
+<table class="table table-striped well">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Num</th>
+            <td>{{ entity.num }}</td>
+        </tr>
+        <tr>
+            <th>Origine</th>
+            <td>{{ entity.origine }}</td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td>{{ entity.type }}</td>
+        </tr>
+        <tr>
+            <th>Date_non_conformite</th>
+            <td>{{ entity.datenonconformite|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Enonce</th>
+            <td>{{ entity.enonce }}</td>
+        </tr>
+        <tr>
+            <th>Resp_concerne</th>
+            <td>{{ entity.respconcerne }}</td>
+        </tr>
+        <tr>
+            <th>Pilote</th>
+            <td>{{ entity.pilote }}</td>
+        </tr>
+        <tr>
+            <th>Interime</th>
+            <td>{{ entity.interime }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('facpglob') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('facpglob_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('facpglob_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

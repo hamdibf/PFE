@@ -37,16 +37,14 @@ class Processus
     private $libelle;
 
     /**
-     * @var string $pilote
-     * @ORM\OneToOne(targetEntity="cnct\facpBundle\Entity\Utilisateur")
-     * @ORM\JoinColumn(referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="cnct\facpBundle\Entity\Utilisateur" )
+     * @ORM\JoinColumn(name="pilote_id", referencedColumnName="id")
      */
     private $pilote;
 
     /**
-     * @var string $interime
      * @ORM\OneToOne(targetEntity="cnct\facpBundle\Entity\Utilisateur")
-     * @ORM\JoinColumn(referencedColumnName="id")
+     * @ORM\JoinColumn(name="interime_id", referencedColumnName="id")
      */
     private $interime;
 
@@ -101,12 +99,13 @@ class Processus
         return $this->libelle;
     }
 
+
     /**
      * Set pilote
      *
      * @param cnct\facpBundle\Entity\Utilisateur $pilote
      */
-    public function setPilote(\cnctfacp\Bundle\Entity\Utilisateur $pilote)
+    public function setPilote(\cnct\facpBundle\Entity\Utilisateur $pilote)
     {
         $this->pilote = $pilote;
     }
@@ -126,7 +125,7 @@ class Processus
      *
      * @param cnct\facpBundle\Entity\Utilisateur $interime
      */
-    public function setInterime(\cnctfacp\Bundle\Entity\Utilisateur $interime)
+    public function setInterime(\cnct\facpBundle\Entity\Utilisateur $interime)
     {
         $this->interime = $interime;
     }
@@ -134,10 +133,13 @@ class Processus
     /**
      * Get interime
      *
-     * @return cnct\facpBundle\Entity\Utilisateur $interime
+     * @return cnct\facpBundle\Entity\Utilisateur 
      */
     public function getInterime()
     {
         return $this->interime;
+    }
+    public function __toString(){
+        return $this->code_pro.' '.$this->libelle;
     }
 }

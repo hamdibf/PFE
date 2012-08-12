@@ -36,9 +36,8 @@ class Direction
     private $libelle;
 
     /**
-     * @var string $directeur
-     *
-     * @ORM\Column(name="directeur", type="string", length=50)
+     * @ORM\OneToOne(targetEntity="cnct\facpBundle\Entity\Utilisateur")
+     * @ORM\JoinColumn(name="directeur_id", referencedColumnName="id")
      */
     private $directeur;
 
@@ -93,12 +92,14 @@ class Direction
         return $this->libelle;
     }
 
+
+
     /**
      * Set directeur
      *
-     * @param string $directeur
+     * @param cnct\facpBundle\Entity\Utilisateur $directeur
      */
-    public function setDirecteur($directeur)
+    public function setDirecteur(\cnct\facpBundle\Entity\Utilisateur $directeur)
     {
         $this->directeur = $directeur;
     }
@@ -106,10 +107,14 @@ class Direction
     /**
      * Get directeur
      *
-     * @return string 
+     * @return cnct\facpBundle\Entity\Utilisateur 
      */
     public function getDirecteur()
     {
         return $this->directeur;
+    }
+
+    public function __toString(){
+        return $this->code_dir.' '.$this->libelle;
     }
 }

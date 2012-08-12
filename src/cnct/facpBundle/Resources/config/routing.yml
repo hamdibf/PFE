@@ -26,6 +26,9 @@ cnctfacpBundle_supprimer:
     defaults:  { _controller: cnctfacpBundle:Facp:supprimer }
     requirements:
         id:  \d+
+cnctfacpBundle_choix:
+    pattern:   /choix
+    defaults:  { _controller: cnctfacpBundle:Facp:choisir }
 cnctfacpBundle_utilisateur:
     resource: "routing/utilisateur.yml"
     prefix:   /utilisateur
@@ -38,3 +41,9 @@ cnctfacpBundle_direction:
 cnctfacpBundle_sous_direction:
     resource: "routing/sous_direction.yml"
     prefix:   /sous_direction
+cnctfacpBundle_facpGlob:
+    resource: "routing/facpGlob.yml"
+    prefix:   /facpGlob
+cnctUserBundle_user:
+    resource: "@cnctUserBundle/Resources/config/routing/user.yml"
+    prefix:   /user

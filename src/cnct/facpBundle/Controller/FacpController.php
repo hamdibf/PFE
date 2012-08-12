@@ -141,4 +141,9 @@ class FacpController extends Controller
             'utilisateur' => $utilisateur
         ));
     }
+    
+    public function choisirAction(){
+        
+        return $this->render('cnctfacpBundle:Facp:choisir.html.twig');
+    }
 }

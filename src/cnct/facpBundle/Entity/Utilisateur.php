@@ -73,25 +73,24 @@ class Utilisateur
     private $grade;
 
     /**
-     * @var string $processus
-     *
-     * @ORM\Column(name="processus", type="string", length=255)
+     * @ORM\OneToOne(targetEntity="cnct\facpBundle\Entity\Processus")
      */
     private $processus;
 
     /**
-     * @var string $direction
-     *
-     * @ORM\Column(name="direction", type="string", length=255)
+     * @ORM\OneToOne(targetEntity="cnct\facpBundle\Entity\Direction")
      */
     private $direction;
 
     /**
-     * @var string $sous_direction
-     *
-     * @ORM\Column(name="sous_direction", type="string", length=255)
+     * @ORM\OneToOne(targetEntity="cnct\facpBundle\Entity\Sous_direction")
      */
     private $sous_direction;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="cnct\UserBundle\Entity\User", cascade={"remove"})
+     */
+    private $auth;
 
     /**
      * Get id
@@ -243,12 +242,18 @@ class Utilisateur
         return $this->grade;
     }
 
+
+    
+    public function __toString(){
+        return $this->matricule.' '.$this->nom.' '.$this->prenom;
+    }
+
     /**
      * Set processus
      *
-     * @param string $processus
+     * @param cnct\facpBundle\Entity\Processus $processus
      */
-    public function setProcessus($processus)
+    public function setProcessus(\cnct\facpBundle\Entity\Processus $processus)
     {
         $this->processus = $processus;
     }
@@ -256,7 +261,7 @@ class Utilisateur
     /**
      * Get processus
      *
-     * @return string 
+     * @return cnct\facpBundle\Entity\Processus 
      */
     public function getProcessus()
     {
@@ -266,9 +271,9 @@ class Utilisateur
     /**
      * Set direction
      *
-     * @param string $direction
+     * @param cnct\facpBundle\Entity\Direction $direction
      */
-    public function setDirection($direction)
+    public function setDirection(\cnct\facpBundle\Entity\Direction $direction)
     {
         $this->direction = $direction;
     }
@@ -276,7 +281,7 @@ class Utilisateur
     /**
      * Get direction
      *
-     * @return string 
+     * @return cnct\facpBundle\Entity\Direction 
      */
     public function getDirection()
     {
@@ -286,9 +291,9 @@ class Utilisateur
     /**
      * Set sous_direction
      *
-     * @param string $sousDirection
+     * @param cnct\facpBundle\Entity\Sous_direction $sousDirection
      */
-    public function setSousDirection($sousDirection)
+    public function setSousDirection(\cnct\facpBundle\Entity\Sous_direction $sousDirection)
     {
         $this->sous_direction = $sousDirection;
     }
@@ -296,14 +301,30 @@ class Utilisateur
     /**
      * Get sous_direction
      *
-     * @return string 
+     * @return cnct\facpBundle\Entity\Sous_direction 
      */
     public function getSousDirection()
     {
         return $this->sous_direction;
     }
-    
-    public function __toString(){
-        return $this->matricule.' '.$this->nom.' '.$this->prenom;
+
+    /**
+     * Set authentificationObject
+     *
+     * @param cnct\UserBundle\Entity\User $authentificationObject
+     */
+    public function setAuthentificationObject(\cnct\UserBundle\Entity\User $authentificationObject)
+    {
+        $this->auth = $authentificationObject;
+    }
+
+    /**
+     * Get authentificationObject
+     *
+     * @return cnct\UserBundle\Entity\User 
+     */
+    public function getAuthentificationObject()
+    {
+        return $this->auth;
     }
 }

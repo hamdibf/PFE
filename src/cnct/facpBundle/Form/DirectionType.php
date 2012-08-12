@@ -12,8 +12,9 @@ class DirectionType extends AbstractType
         $builder
             ->add('code_dir')
             ->add('libelle')
-            ->add('directeur')
-        ;
+            ->add('directeur', 'entity', array(
+                'class' => 'cnctfacpBundle:Utilisateur'));
+        
     }
 
     public function getName()

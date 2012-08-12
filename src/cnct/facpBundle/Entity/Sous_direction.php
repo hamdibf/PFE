@@ -36,9 +36,8 @@ class Sous_direction
     private $libelle;
 
     /**
-     * @var string $direction
-     *
-     * @ORM\Column(name="direction", type="string", length=50)
+     * @ORM\OneToOne(targetEntity="cnct\facpBundle\Entity\Direction")
+     * @ORM\JoinColumn(name="direction_id", referencedColumnName="id")
      */
     private $direction;
 
@@ -93,12 +92,13 @@ class Sous_direction
         return $this->libelle;
     }
 
+
     /**
      * Set direction
      *
-     * @param string $direction
+     * @param cnct\facpBundle\Entity\Direction $direction
      */
-    public function setDirection($direction)
+    public function setDirection(\cnct\facpBundle\Entity\Direction $direction)
     {
         $this->direction = $direction;
     }
@@ -106,10 +106,13 @@ class Sous_direction
     /**
      * Get direction
      *
-     * @return string 
+     * @return cnct\facpBundle\Entity\Direction 
      */
     public function getDirection()
     {
         return $this->direction;
+    }
+    public function __toString(){
+        return $this->code_s_dir.' '.$this->libelle;
     }
 }

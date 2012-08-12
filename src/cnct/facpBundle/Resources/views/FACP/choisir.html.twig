@@ -1,0 +1,17 @@
+{% extends "cnctfacpBundle::layout.html.twig" %}
+
+{% block title %}
+	Administration - {{ parent() }}
+{% endblock %}
+{% block menu %}
+        <h1><font color="#800080">Administration</font></h1>
+{% endblock %}
+{% block facp_body %}
+    <ul>
+        <li><a href="{{ path('utilisateur') }}">Gestion des utilisateurs</a></li>
+        <li><a href="{{ path('processus') }}">Gestion des processus</a></li>
+        <li><a href="{{ path('direction') }}">Gestion des directions</a></li>
+        <li><a href="{{ path('sous_direction') }}">Gestion des sous directions</a></li>
+
+
+{% endblock %}

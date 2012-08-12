@@ -14,8 +14,9 @@ class ProcessusType extends AbstractType
             ->add('code_pro')
             ->add('libelle')
             ->add('pilote', 'entity', array(
-    'class' => 'cnctfacpBundle:Utilisateur',
-));        
+                'class' => 'cnctUserBundle:User'))
+            ->add('interime', 'entity', array(
+                'class' => 'cnctfacpBundle:Utilisateur'));
     }
   
     public function getName()

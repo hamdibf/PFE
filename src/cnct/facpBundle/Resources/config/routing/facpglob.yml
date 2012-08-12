@@ -1,0 +1,30 @@
+facpglob:
+    pattern:  /
+    defaults: { _controller: "cnctfacpBundle:FacpGlob:index" }
+
+facpglob_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "cnctfacpBundle:FacpGlob:show" }
+
+facpglob_new:
+    pattern:  /new
+    defaults: { _controller: "cnctfacpBundle:FacpGlob:new" }
+
+facpglob_create:
+    pattern:  /create
+    defaults: { _controller: "cnctfacpBundle:FacpGlob:create" }
+    requirements: { _method: post }
+
+facpglob_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "cnctfacpBundle:FacpGlob:edit" }
+
+facpglob_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "cnctfacpBundle:FacpGlob:update" }
+    requirements: { _method: post }
+
+facpglob_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "cnctfacpBundle:FacpGlob:delete" }
+    requirements: { _method: post }

@@ -26,9 +26,23 @@ class UtilisateurType extends AbstractType
                 )
             )
             ->add('grade')
-            ->add('processus')
-            ->add('direction')
-            ->add('sous_direction')
+            ->add('processus', 'entity', array(
+                'class' => 'cnctfacpBundle:Processus',
+                        'required'  => 
+                            false                        
+                        ))
+            ->add('direction', 'entity', array(
+                'class' => 'cnctfacpBundle:Direction',
+                        'required'  => 
+                            false))
+            ->add('sous_direction', 'entity', array(
+                'class' => 'cnctfacpBundle:Sous_direction',
+                        'required'  => 
+                            false))
+            ->add('authentificationObject', 'entity', array(
+                'class' => 'cnctUserBundle:User',
+                        'required'  => 
+                            false))
         ;
     }
 

@@ -12,8 +12,8 @@ class Sous_directionType extends AbstractType
         $builder
             ->add('code_s_dir')
             ->add('libelle')
-            ->add('direction')
-        ;
+            ->add('direction', 'entity', array(
+                'class' => 'cnctfacpBundle:Direction'));
     }
 
     public function getName()
