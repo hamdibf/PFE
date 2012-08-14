@@ -15,12 +15,11 @@
             <th>Id</th>
             <th>Num</th>
             <th>Origine</th>
-            <th>Type</th>
+            <th>Non conformité</th>
             <th>Date_non_conformite</th>
             <th>Enonce</th>
             <th>Resp_concerne</th>
-            <th>Pilote</th>
-            <th>Interime</th>
+            <th>Détecteur</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -30,12 +29,11 @@
             <td><a href="{{ path('facpglob_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.num }}</td>
             <td>{{ entity.origine }}</td>
-            <td>{{ entity.type }}</td>
+            <td>{{ entity.nonconformite }}</td>
             <td>{% if entity.datenonconformite %}{{ entity.datenonconformite|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td>{{ entity.enonce }}</td>
             <td>{{ entity.respconcerne }}</td>
-            <td>{{ entity.pilote }}</td>
-            <td>{{ entity.interime }}</td>
+            <td>{{ entity.detecteur }}</td>
             <td>
                 <ul>
                     <li>

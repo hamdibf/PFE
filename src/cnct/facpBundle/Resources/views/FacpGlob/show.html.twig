@@ -11,25 +11,18 @@
 
 <table class="table table-striped well">
     <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Num</th>
-            <td>{{ entity.num }}</td>
-        </tr>
+        
         <tr>
             <th>Origine</th>
             <td>{{ entity.origine }}</td>
         </tr>
         <tr>
-            <th>Type</th>
-            <td>{{ entity.type }}</td>
+            <th>Non conformité</th>
+            <td>{{ entity.nonconformite }}</td>
         </tr>
         <tr>
             <th>Date_non_conformite</th>
-            <td>{{ entity.datenonconformite|date('Y-m-d H:i:s') }}</td>
+            <td>{{ entity.datenonconformite|date('d-m-Y') }}</td>
         </tr>
         <tr>
             <th>Enonce</th>
@@ -40,12 +33,12 @@
             <td>{{ entity.respconcerne }}</td>
         </tr>
         <tr>
-            <th>Pilote</th>
-            <td>{{ entity.pilote }}</td>
+            <th>Détecteur</th>
+            <td>{{ entity.detecteur }}</td>
         </tr>
         <tr>
-            <th>Interime</th>
-            <td>{{ entity.interime }}</td>
+            <th>Etat</th>
+            <td>{{ entity.etat }}</td>
         </tr>
     </tbody>
 </table>

@@ -245,7 +245,7 @@ class Utilisateur
 
     
     public function __toString(){
-        return $this->matricule.' '.$this->nom.' '.$this->prenom;
+        return $this->grade.' '.$this->nom.' '.$this->prenom;
     }
 
     /**

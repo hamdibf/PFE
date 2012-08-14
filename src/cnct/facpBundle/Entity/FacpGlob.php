@@ -26,7 +26,7 @@ class FacpGlob
      *
      * @ORM\Column(name="num", type="integer")
      */
-    private $num;
+    public static $num;
 
     /**
      * @var string $origine
@@ -36,11 +36,11 @@ class FacpGlob
     private $origine;
 
     /**
-     * @var string $type
+     * @var string $non_conformite
      *
-     * @ORM\Column(name="type", type="string", length=25)
+     * @ORM\Column(name="non_conformite", type="string", length=25)
      */
-    private $type;
+    private $non_conformite;
 
     /**
      * @var datetime $date_non_conformite
@@ -64,16 +64,26 @@ class FacpGlob
     /**
      * @ORM\OneToOne(targetEntity="cnct\facpBundle\Entity\Utilisateur")
      */
-    private $pilote;
+    private $detecteur;
 
     /**
-     * @ORM\OneToOne(targetEntity="cnct\facpBundle\Entity\Utilisateur")
+     * @var string $etat
+     *
+     * @ORM\Column(name="etat", type="string", length=50)
      */
-    private $interime;
-
+    private $etat;
+    
+    
+    
     public function __construct()
     {
-        $this->date = new \Datetime();
+        $this->date_non_conformite = new \Datetime();
+        $this->etat = "En attente de correction";
+        
+        if (is_null(self::$num)) 
+            self::$num=1;
+        else
+            self::$num++;
     }
     
     /**
@@ -86,27 +96,7 @@ class FacpGlob
         return $this->id;
     }
 
-    /**
-     * Set num
-     *
-     * @param integer $num
-     */
-    public function setNum($num)
-    {
-        $this->num = $num;
-    }
-
-    /**
-     * Get num
-     *
-     * @return integer 
-     */
-    public function getNum()
-    {
-        return $this->num;
-    }
-
-    /**
+   /**
      * Set origine
      *
      * @param string $origine
@@ -124,26 +114,6 @@ class FacpGlob
     public function getOrigine()
     {
         return $this->origine;
-    }
-
-    /**
-     * Set type
-     *
-     * @param string $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string 
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -188,46 +158,6 @@ class FacpGlob
     }
 
     /**
-     * Set pilote
-     *
-     * @param cnct\facpBundle\Entity\Utilisateur $pilote
-     */
-    public function setPilote(\cnct\facpBundle\Entity\Utilisateur $pilote)
-    {
-        $this->pilote = $pilote;
-    }
-
-    /**
-     * Get pilote
-     *
-     * @return cnct\facpBundle\Entity\Utilisateur 
-     */
-    public function getPilote()
-    {
-        return $this->pilote;
-    }
-
-    /**
-     * Set interime
-     *
-     * @param cnct\facpBundle\Entity\Utilisateur $interime
-     */
-    public function setInterime(\cnct\facpBundle\Entity\Utilisateur $interime)
-    {
-        $this->interime = $interime;
-    }
-
-    /**
-     * Get interime
-     *
-     * @return cnct\facpBundle\Entity\Utilisateur 
-     */
-    public function getInterime()
-    {
-        return $this->interime;
-    }
-
-    /**
      * Set date_non_conformite
      *
      * @param datetime $dateNonConformite
@@ -245,5 +175,74 @@ class FacpGlob
     public function getDateNonConformite()
     {
         return $this->date_non_conformite;
+    }
+
+
+    /**
+     * Get num
+     *
+     * @return integer 
+     */
+    public function getNum()
+    {
+        return self::$num;
+    }
+
+    /**
+     * Set non_conformite
+     *
+     * @param string $nonConformite
+     */
+    public function setNonConformite($nonConformite)
+    {
+        $this->non_conformite = $nonConformite;
+    }
+
+    /**
+     * Get non_conformite
+     *
+     * @return string 
+     */
+    public function getNonConformite()
+    {
+        return $this->non_conformite;
+    }
+    /**
+     * Set etat
+     *
+     * @param string $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
+
+    /**
+     * Get etat
+     *
+     * @return string 
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+    /**
+     * Set detecteur
+     *
+     * @param cnct\facpBundle\Entity\Utilisateur $detecteur
+     */
+    public function setDetecteur(\cnct\facpBundle\Entity\Utilisateur $detecteur)
+    {
+        $this->detecteur = $detecteur;
+    }
+
+    /**
+     * Get detecteur
+     *
+     * @return cnct\facpBundle\Entity\Utilisateur 
+     */
+    public function getDetecteur()
+    {
+        return $this->detecteur;
     }
 }

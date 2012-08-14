@@ -70,6 +70,7 @@ class FacpController extends Controller
         // On exécute le traitement du formulaire. S'il retourne true, alors le formulaire a bien été traité
         if( $formHandler->process() )
         {
+            $this->get('session')->setFlash('info', 'Utilisateur ajouté avec succées!');
             return $this->redirect( $this->generateUrl('cnctfacpBundle_voir', array('id' => $utilisateur->getId())) );
         }
 
@@ -94,6 +95,7 @@ class FacpController extends Controller
 
         if($formHandler->process())
         {
+            $this->get('session')->setFlash('info', 'Utilisateur bien modifié');
             return $this->redirect( $this->generateUrl('cnctfacpBundle_voir', array('id' => $utilisateur->getId())) );
         }
 
@@ -120,7 +122,7 @@ class FacpController extends Controller
             $em->remove($utilisateur);
             $em->flush();
             
-            $this->get('session')->setFlash('info', 'Utilisateur bien supprimé');
+            $this->get('session')->setFlash('info', 'Utilisateur supprimé avec succés');
 
             // Puis on redirige vers l'accueil.
             return $this->redirect( $this->generateUrl('cnctfacpBundle_homepage') );

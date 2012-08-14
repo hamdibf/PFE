@@ -13,12 +13,12 @@ class UtilisateurType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('adresse_ip')
-            ->add('categorie', 'choice', array('choices' => array(1 => "Civil", 2 => "Militaire"),'multiple' => false,
+            ->add('categorie', 'choice', array('choices' => array("Civil" => "Civil", "Militaire" => "Militaire"),'multiple' => false,
                 'expanded' => false,
                 'empty_value' => '- Choisissez une categorie -',
                 'empty_data'  => -1
                 ))
-            ->add('etat','choice', array('choices' => array(1 => "A", 2 => "N/A", 3 => "R"),'multiple' => false,
+            ->add('etat','choice', array('choices' => array('A' => 'Actif', 'N/A' => 'Non actif', 'R' => 'Retraité'),'multiple' => false,
                 'expanded' => false,
                 'preferred_choices' => array(1),
                 'empty_value' => '- Choisissez un état -',

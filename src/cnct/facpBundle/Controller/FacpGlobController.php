@@ -74,14 +74,24 @@ class FacpGlobController extends Controller
     {
         $entity  = new FacpGlob();
         $request = $this->getRequest();
-        $form    = $this->createForm(new FacpGlobType(), $entity);
-        $form->bindRequest($request);
-
+        
+        $ip = $this->container->get('request')->getClientIp();
+        
+        $repository = $this->getDoctrine()
+                   ->getEntityManager()
+                   ->getRepository('cnctfacpBundle:Utilisateur');
+        
+        $detecteur = $repository->findOneBy(array('adresse_ip' => $ip));
+        $entity->setDetecteur($detecteur);
+        
+        $form    = $this->createForm(new FacpGlobType(), $entity);        
+        $form->bindRequest($request);              
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getEntityManager();            
             $em->persist($entity);
             $em->flush();
-
+            
+            $this->get('session')->setFlash('info', 'Enregitrement terminé avec succés');
             return $this->redirect($this->generateUrl('facpglob_show', array('id' => $entity->getId())));
             
         }
@@ -173,7 +183,7 @@ class FacpGlobController extends Controller
             $em->remove($entity);
             $em->flush();
         }
-
+        $this->get('session')->setFlash('info', 'Facp supprimée avec succés');
         return $this->redirect($this->generateUrl('facpglob'));
     }
 
